@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <template id="my-component">
+        <style>
+            p {
+                background: lightyellow;
+                color:lightsalmon;
+            }
+            div {
+                background: lightgreen;
+                width: 250px;
+                border-radius: 10px;
+                text-align: center;
+            }
+        </style>
+        <div>
+            <p>my component</p>
+        </div>
+        <script>
+            function fn() {
+                console.log('test component')
+            }
+        </script>
+    </template>
+
+    <script>
+        /**
+         * 该类负责将  HTML 模板挂载到 shadowDOM 上 
+         */
+        class MyComponent extends HTMLElement {
+            constructor(params) {
+                super()
+                // 模板
+                const content = document.querySelector('#my-component').content    
+                // 创建影子节点 组件被封装成影子节点
+                const shadowDOM = this.attachShadow({ mode: 'open' })
+                shadowDOM.appendChild(content.cloneNode(true)) 
+            }
+        }
+        customElements.define('my-component', MyComponent) // 定义组件
+    </script>
+    <style>
+      div {
+          background:blue;
+          width: 100px;
+          height: 100px;
+          margin: 10px;
+      }
+    </style>
+        <my-component></my-component>
+        <my-component></my-component>
+        <div></div>
+        <my-component></my-component>
+        <video src=""></video>
+</body>
+</html>

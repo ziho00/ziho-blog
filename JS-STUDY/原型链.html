@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        console.log(b)
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var Father = /** @class */ (function () {
+    function Father(name) {
+        this._name = name;
+    }
+    Father.prototype.getName = function () {
+        return this._name;
+    };
+    return Father;
+}());
+var Son = /** @class */ (function (_super) {
+    console.log(Son)
+    __extends(Son, _super);
+    function Son(name) {
+        return _super.call(this, name) || this;
+    }
+    return Son;
+}(Father));
+
+
+let son = new Son('aaa')
+
+console.log(son)
+
+console.log(Son.prototype)
+
+function Sup(name) { // 父类构造函数
+    this.name = name
+}
+
+Sup.prototype.say = function() { // 父类中的方法
+    console.log(this.name)
+}
+
+function Sub(name) {
+    Sup.call(this, name) // 在子类中调用父类的构造函数并使用call方法在构造函数内部将this指向新对象
+}
+
+Sub.__proto__ = Sup // 子类构造函数的 __proto__ 指向 父类构造函数 
+
+function __() { // 创建一个临时构造函数
+    this.constructor = Sub // 该实例中的constructor 指向 Sub 实现 Sub.prototype.constructor -> Sub
+}
+
+__.prototype = Sup.prototype // 相当于 使用new _() 创建的实例 实现原型链继承Sup
+
+Sub.prototype = new __() // 子类的原型为 临时构造函数的实例 即Sub.prototype = _.proto__ 而 
+
+
+
+
+let sub = new Sub('xxx')
+
+console.log(sub.__proto__ === Sub.prototype)
+console.log(Sub.prototype.constructor === Sub)
+console.log(__.prototype === Sub.prototype.__proto__)
+
+sub.say()
+</script>
+</body>
+</html>

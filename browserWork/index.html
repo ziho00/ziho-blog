@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #post { color: blue }
+        h1.title { color: black }
+        .content .title { color: red }
+        article h1 { color: green }
+       </style>
+      
+</head>
+
+<article id="post" class="content">
+    <h1 class="title">360公司简介</h1>
+ </article>
+
+ 
+<body>
+<script>
+
+let obj = {
+    name: 'ziho',
+    age: 20,
+    arr: [1, 2, 3, 4],
+    obj: {
+        key1: 'key1',
+        key2: 'key1',
+        key3: {
+            key3_1: 'key3_1',
+            key3_2: 'key3_2'
+        }
+    },
+    say: function() {
+        console.log(this.name)
+    }
+}
+
+console.log(typeof obj)
+console.log(typeof obj.arr)
+console.log(typeof obj.say)
+
+let copy = function (obj){
+    if(typeof obj === 'object'){
+        let res = obj.constructor()
+        for(let key in obj){
+          res[key] = copy(obj[key])
+        }
+        return res
+    } else if(typeof obj === 'function') { 
+        res = eval("(" + obj + ")")
+        return res
+    } else {
+        return obj
+    }
+}
+
+let copyObj = copy(obj)
+
+
+function myAjax({url, method, data, success, error, contentType, responseType, header, timeout}) {
+    let xhr = new XMLHttpRequest()
+    if(!url) {
+        throw new Error(`Missing parameter url`)
+    }
+    let type = method.toLowerCase() || 'get'
+    params = null
+    if(type === 'get'){
+        if(data) {
+            url = url + '?'
+            let i = 0
+            for(let key in data){
+                url += i === 0 ? (key + '=' + data[key]) : ('&' + key + '=' + data[key])
+                i++ 
+            }
+        }
+    } else if(type === 'post'){
+        if(data) {
+            params = ''
+            let i = 0
+            for(let key in data) {
+                params += i == 0 ? (key + '=' + data[key]) : ('&' + key + '=' + data[key]) 
+                i++
+            }
+        }
+    }
+
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4){
+            if(this.status === 200 || this.status === 304){
+                success && success(this.response)
+            }
+        }
+    }
+
+    xhr.open(type, url, true)
+
+    timeout && (xhr.timeout = timeout)
+    
+    xhr.responseType = responseType ? responseType : 'json'
+
+    if(type === 'get'){
+        xhr.setRequestHeader("Content-Type", "application/json")
+    } else if (type === 'post') {
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+        
+    }
+
+    contentType && xhr.setRequestHeader("Content-Type", contentType)
+    
+    for(let key in header) {
+        xhr.setRequestHeader(key, header[key])
+    }
+
+    xhr.send(params)
+}
+
+
+
+myAjax({
+    url: 'http://localhost:3000/personalized',
+    data: {
+        a: '222'
+    },
+    method: 'post',
+    success: function(xhr){
+        console.log(xhr)
+    }
+})
+
+
+</script>
+</body>
+</html>

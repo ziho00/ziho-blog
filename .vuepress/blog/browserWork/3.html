@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS中的作用域 | 学习前端</title>
+    <meta name="description" content="归纳前端学习知识点">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.3fcecfc3.css" as="style"><link rel="preload" href="/blog/assets/js/app.1b5d2ea8.js" as="script"><link rel="preload" href="/blog/assets/js/2.daa6c974.js" as="script"><link rel="preload" href="/blog/assets/js/4.5f364518.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.368f4418.js"><link rel="prefetch" href="/blog/assets/js/11.0e2a5e23.js"><link rel="prefetch" href="/blog/assets/js/12.782e7b90.js"><link rel="prefetch" href="/blog/assets/js/13.4527dea8.js"><link rel="prefetch" href="/blog/assets/js/14.c5011f64.js"><link rel="prefetch" href="/blog/assets/js/15.db35c99c.js"><link rel="prefetch" href="/blog/assets/js/16.e394df60.js"><link rel="prefetch" href="/blog/assets/js/17.65fd8811.js"><link rel="prefetch" href="/blog/assets/js/18.b12649db.js"><link rel="prefetch" href="/blog/assets/js/19.de123a3f.js"><link rel="prefetch" href="/blog/assets/js/20.c485b6fe.js"><link rel="prefetch" href="/blog/assets/js/21.2b520b34.js"><link rel="prefetch" href="/blog/assets/js/22.7aa61d5e.js"><link rel="prefetch" href="/blog/assets/js/23.ebbe3dc4.js"><link rel="prefetch" href="/blog/assets/js/24.1f9bacd8.js"><link rel="prefetch" href="/blog/assets/js/25.f6ebf531.js"><link rel="prefetch" href="/blog/assets/js/26.4832d624.js"><link rel="prefetch" href="/blog/assets/js/27.a99b60cd.js"><link rel="prefetch" href="/blog/assets/js/28.5ed9e5a5.js"><link rel="prefetch" href="/blog/assets/js/3.46d875a2.js"><link rel="prefetch" href="/blog/assets/js/5.b7b47752.js"><link rel="prefetch" href="/blog/assets/js/6.32a7d057.js"><link rel="prefetch" href="/blog/assets/js/7.b55bc2ee.js"><link rel="prefetch" href="/blog/assets/js/8.69b2032f.js"><link rel="prefetch" href="/blog/assets/js/9.a325d718.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.3fcecfc3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">学习前端</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端入门学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>html学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>css学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>浏览器工作原理</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/browserWork/1.html" class="sidebar-link">浏览器工作原理</a></li><li><a href="/blog/browserWork/2.html" class="sidebar-link">从输入URL到页面展示，中间发生了什么？</a></li><li><a href="/blog/browserWork/3.html" class="active sidebar-link">JS中的作用域</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/browserWork/3.html#作用域-scope" class="sidebar-link">作用域 Scope</a></li><li class="sidebar-sub-header"><a href="/blog/browserWork/3.html#es6中的let和const" class="sidebar-link">ES6中的let和const</a></li><li class="sidebar-sub-header"><a href="/blog/browserWork/3.html#javascript是怎么实现块级作用域的？" class="sidebar-link">JavaSCript是怎么实现块级作用域的？</a></li><li class="sidebar-sub-header"><a href="/blog/browserWork/3.html#作用域链" class="sidebar-link">作用域链</a></li><li class="sidebar-sub-header"><a href="/blog/browserWork/3.html#闭包" class="sidebar-link">闭包</a></li></ul></li><li><a href="/blog/browserWork/4.html" class="sidebar-link">JS 中的 this 指向</a></li><li><a href="/blog/browserWork/5.html" class="sidebar-link">call、apply、bind的实现</a></li><li><a href="/blog/browserWork/6.html" class="sidebar-link">JS 数据类型</a></li><li><a href="/blog/browserWork/7.html" class="sidebar-link">JS中的数据存储</a></li><li><a href="/blog/browserWork/8.html" class="sidebar-link">JS垃圾回收</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js基础</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="js中的作用域"><a href="#js中的作用域" class="header-anchor">#</a> JS中的作用域</h1> <h2 id="作用域-scope"><a href="#作用域-scope" class="header-anchor">#</a> 作用域 Scope</h2> <p>作用域是指在程序中定义变量的区域，该位置决定了变量的生命周期。即使变量或者函数的访问范围或是生命周期。</p> <p>在ES6之前(let和const还未出现)，存在两种作用域：全局作用域和函数作用域</p> <ul><li><p>全局作用域，全局作用域中的对象在代码中任何地方都能访问，全局作用域的生命周期，就是整个页面的生命周期</p></li> <li><p>函数作用域，指函数内部定义的变量和函数，只能在函数内部访问，并且当函数执行完后会被销毁。</p></li></ul> <p>由于JS中存在变量提升这个很特殊的性质：</p> <div class="language- extra-class"><pre class="language-text"><code>function foo(){ 
+    for (var i = 0; i &lt; 7; i++) { 
+
+    } 
+    console.log(i); // 7
+}
+   
+foo()
+
+var username = 'ziho'
+
+function print() {
+    console.log(username) // underfine
+    if(0){
+        var username = 'ziho___'
+    }
+    console.log(username) // underfine
+}
+
+print()
+</code></pre></div><p>上面的两个方法很好的说明了变了提升带来的影响，这也说明了在ES6之前是不存在块级作用域这一说的。</p> <h2 id="es6中的let和const"><a href="#es6中的let和const" class="header-anchor">#</a> ES6中的let和const</h2> <p>let 和 const 是在ES6中被提出的，这也使得JS也拥有了块级作用域。而let和const的区别就是，let创建的是变量,const创建的是不可变的变量(const如果创建的是对象,当改变该变量的属性时不会报错)</p> <div class="language- extra-class"><pre class="language-text"><code>function varTest() { 
+    var x = 1; 
+    if (true) { 
+        var x = 2; // 同样的变量! 
+        console.log(x); // 2 
+    } 
+    console.log(x); // 2 因为if内部声明的x覆盖了if外部声明的x，且遵循后声明的会覆盖前面声明的
+}
+
+function varTest() { 
+    let x = 1; 
+    if (true) { 
+        let x = 2; // 同样的变量! 
+        console.log(x); // 2 
+    } 
+    console.log(x); // 1
+}
+
+</code></pre></div><p>从上面的代码可以看出，由于在ES6前不存在块级作用域，变量被提升了，导致若声明的变量名字相同后声明的会覆盖前面声明的。但当使用了ES6中的let创建变量时就创建了块级作用域，即作用域块内声明的变量不影响块外面的变量。</p> <p>但是ES是向下兼容的，所以也表示ES6中同样使用的是变量提升这一规则</p> <h2 id="javascript是怎么实现块级作用域的？"><a href="#javascript是怎么实现块级作用域的？" class="header-anchor">#</a> JavaSCript是怎么实现块级作用域的？</h2> <p>我们先从执行上下文这的角度分析：</p> <p>我们也知道JS是通过执行环境来实现的函数作用域，所以ES6是怎么在这基础上实现的块级作用域呢？先看下面代码：</p> <div class="language- extra-class"><pre class="language-text"><code>function foo(){
+    var a = 1
+    let b = 2
+    {
+      let b = 3
+      var c = 4
+      let d = 5
+      console.log(a) // 1
+      console.log(b) // 3
+    }
+    console.log(b) // 2
+    console.log(c) // 4
+    console.log(d) // d is not defined
+}   
+foo()
+</code></pre></div><p>当执行下面代码时，JS引擎会先对其进行编译并创建执行上下文，然后再按照顺序执行代码，因为我们引入了 let 关键字，let 关键字会创建块级作用域，那么 let 关键字是如何影响执行上下文的呢？</p> <p>第一步是编译并创建执行上下文:
+<img src="/blog/assets/img/11.071443b6.png" alt="编译并创建执行上下文"></p> <p>所以我们可以得出：</p> <ul><li>函数内部通过 var 声明的变量，在编译阶段全都被存放到变量环境里面
+了。</li> <li>通过 let 声明的变量，在编译阶段会被存放到词法环境（Lexical Environment）中。</li> <li>在函数的作用域内部，通过 let 声明的变量并没有被存放到词法环境中。</li></ul> <p>第二步继续执行代码,当执行到代码块里面时，变量环境中 a 的值已经被设置成了 1，词法环境中 b 的值已经被设置成了 2，这时候函数的执行上下文就如下图所示：</p> <p><img src="/blog/assets/img/12.95db2302.png" alt="执行 foo 函数内部作用域块时的执行上下文">
+从图中可以看出，当进入函数的作用域块时，作用域块中通过 let 声明的变量，会被存放在词法环境的一个单独的区域中，这个区域中的变量并不影响作用域块外面的变量，比如在作用域外面声明了变量 b，在该作用域块内部也声明了变量 b，当执行到作用域内部时，它们都是独立的存在。</p> <p>其实，在词法环境内部，维护了一个小型栈结构，栈底是函数最外层的变量，进入一个作用域块后，就会把该作用域块内部的变量压到栈顶；当作用域执行完成之后，该作用域的信息就会从栈顶弹出，这就是词法环境的结构。需要注意下，我这里所讲的变量是指通过 let 或者 const 声明的变量。</p> <p>再接下来，当执行到作用域块中的console.log(a)这行代码时，就需要在词法环境和变量环境中查找变量 a 的值了，具体查找方式是：沿着词法环境的栈顶向下查询，如果在词法环境中的某个块中查找到了，就直接返回给 JavaScript 引擎，如果没有查找到，那么继续在变量环境中查找。</p> <p>其实ES6就是通过这里的词法环境栈将变量分在了一个个的块中。</p> <p>可以分析一下这段代码的结果:</p> <div class="language- extra-class"><pre class="language-text"><code>let myname= 'test'
+{
+  console.log(myname) 
+  let myname= 'tes2'
+}
+</code></pre></div><p>最终打印的结果为：==Uncaught ReferenceError: Cannot access 'myname' before initialization==</p> <p>原因：在块作用域内，let声明的变量被提升，但变量只是创建被提升，初始化并没有被提升，在初始化之前使用变量，就会形成一个暂时性死区。</p> <p>扩展:</p> <ul><li>var的创建和初始化被提升，赋值不会被提升。</li> <li>let的创建被提升，初始化和赋值不会被提升。</li> <li>function的创建、初始化和赋值均会被提升。</li></ul> <h2 id="作用域链"><a href="#作用域链" class="header-anchor">#</a> 作用域链</h2> <p>先看下面一段代码：</p> <div class="language- extra-class"><pre class="language-text"><code>function bar() {
+    console.log(myName) // ziho
+}
+function foo() {
+    var myName = &quot;ziho---&quot;
+    bar()
+}
+var myName = &quot;ziho&quot;
+foo()
+</code></pre></div><p>我们可以得知，最后bar()中输出的是'ziho'字符串，为什么呢？按正常的理解不应该是查找到foo()中的'ziho---'吗？所以我们就要来说说JS是怎么查找变量的了。</p> <p>其实在每个执行上下文的变量环境(即每个函数的执行环境)中，都包含了一个外部引用，用来指向外部的执行上下文，我们把这个外部引用称为 outer。这个outer的指向只跟函数声明代码所在的位置有关，与执行的位置无关。</p> <p>当一段代码使用了一个变量时，JavaScript 引擎首先会在“当前的执行上下文”中查找该变量，</p> <p>比如上面那段代码在查找 myName 变量时，如果在当前的变量环境中没有查找到，那么 JavaScript 引擎会继续在 outer 所指向的执行上下文中查找。</p> <p>而在上面的代码中，bar 和 foo 的 outer都指向了全局的变量环境(因为bar 和 foo 在全局执行环境中声明)，所以也就能解释为什么bar中输出的是全局执行环境中变量而不是foo中的变量。而我们也把这个查找变量的路径称为作用域链。</p> <h3 id="词法作用域"><a href="#词法作用域" class="header-anchor">#</a> 词法作用域</h3> <p><strong>词法作用域就是指作用域是由代码中函数声明的位置来决定的，所以词法作用域是静态的作用域，通过它就能够预测代码在执行过程中如何查找标识符。</strong></p> <p>你可以看下面这张图：
+<img src="/blog/assets/img/13.6461aced.png" alt="词法作用域"></p> <p>从图中可以看出，词法作用域就是根据代码的位置来决定的，其中 main 函数包含了 bar 函数，bar 函数中包含了 foo 函数，因为 JavaScript 作用域链是由词法作用域决定的，所以整个词法作用域链的顺序是：foo 函数作用域—&gt;bar 函数作用域—&gt;main 函数作用域—&gt; 全局作用域。</p> <p>了解了词法作用域以及 JavaScript 中的作用域链，我们再回过头来看看上面的那个问题：在开头那段代码中，foo 函数调用了 bar 函数，那为什么 bar 函数的外部引用是全局执行上下文，而不是 foo 函数的执行上下文?</p> <p>这是因为根据词法作用域，foo 和 bar 的上级作用域都是全局作用域，所以如果 foo 或者 bar 函数使用了一个它们没有定义的变量，那么它们会到全局作用域去查找。也就是说，<strong>词法作用域是代码阶段就决定好的，和函数是怎么调用的没有关系</strong>。</p> <h3 id="块级作用域查找变量"><a href="#块级作用域查找变量" class="header-anchor">#</a> 块级作用域查找变量</h3> <p>先看下面代码：</p> <div class="language- extra-class"><pre class="language-text"><code>function bar() {
+    var myName = &quot;极客世界&quot;
+    let test1 = 100
+    if (1) {
+        let myName = &quot;Chrome浏览器&quot;
+        console.log(test)
+    }
+}
+function foo() {
+    var myName = &quot;极客邦&quot;
+    let test = 2
+    {
+        let test = 3
+        bar()
+    }
+}
+var myName = &quot;极客时间&quot;
+let myAge = 10
+let test = 1
+foo()
+</code></pre></div><p>要想得出其执行结果，那接下来我们就得站在作用域链和词法环境的角度来分析下其执行过程。</p> <p>我们知道ES6 是支持块级作用域的，当执行到代码块时，如果代码块中有 let 或者 const 声明的变量，那么变量就会存放到该函数的词法环境中(即let 和 const声明的变量会压入词法环境栈中,var 声明的变量放在变量环境)，如图所示：</p> <p><img src="/blog/assets/img/15.cbd1669e.png" alt="块级作用域查找变量"></p> <p>现在是执行到 bar 函数的 if 语块之内，需要打印出来变量 test，那么就需要查找到 test 变量的值，其查找过程我已经在上图中使用序号 1、2、3、4、5 标记出来了。</p> <p>可以看出，首先是在 bar 函数的执行上下文中查找，但因为 bar 函数的执行上下文中没有定义 test 变量，所以根据词法作用域的规则，下一步就在 bar 函数的外部作用域中查找，也就是全局作用域。</p> <h2 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h2> <p>下面一段代码就是闭包的一个例子：</p> <div class="language- extra-class"><pre class="language-text"><code>function foo() {
+    var myName = &quot;test&quot;
+    let test1 = 1
+    const test2 = 2
+    var innerBar = {
+        getName:function(){
+            console.log(test1) // 1 1
+            return myName
+        },
+        setName:function(newName){
+            myName = newName
+        }
+    }
+    return innerBar
+}
+var bar = foo()
+bar.setName(&quot;test2&quot;)
+bar.getName()
+console.log(bar.getName()) // test2
+</code></pre></div><p>从上面的代码可以看出，innerBar 是一个对象，包含了 getName 和 setName 的两个方法（通常我们把对象内部的函数称为方法）。你可以看到，这两个方法都是在 foo 函数内部定义的，并且这两个方法内部都使用了 myName 和 test1 两个变量。</p> <p>根据词法作用域的规则，内部函数 getName 和 setName 总是可以访问它们的外部函数 foo 中的变量，所以当 innerBar 对象返回给全局变量 bar 时，虽然 foo 函数已经执行结束，但是 getName 和 setName 函数依然可以使用 foo 函数中的变量 myName 和 test1。</p> <p>我们也知道当函数代码执行完之后会从执行环境栈即执行上下文栈中弹出,所以当foo 函数执行完成之后，其执行上下文从栈顶弹出了，但是由于返回的 setName 和 getName 方法中使用了 foo 函数内部的变量 myName 和 test1，所以这两个变量依然保存在内存中。这像极了 setName 和 getName 方法背的一个专属背包，无论在哪里调用了 setName 和 getName 方法，它们都会背着这个 foo 函数的专属背包。</p> <p>之所以是专属背包，是因为除了 setName 和 getName 函数之外，其他任何地方都是无法访问该背包的，我们就可以把这个背包称为 foo 函数的<strong>闭包</strong>。</p> <p><strong>在 JavaScript 中，根据词法作用域的规则，内部函数总是可以访问其外部函数中声明的变量，当通过调用一个外部函数返回一个内部函数后，即使该外部函数已经执行结束了，但是内部函数引用外部函数的变量依然保存在内存中，我们就把这些变量的集合称为闭包。比如外部函数是 foo，那么这些变量的集合就称为 foo 函数的闭包。</strong></p> <p>我们可以打开chrome浏览器的开发者工具在 innerBar中点一个断点查看</p> <p><img src="/blog/assets/img/17.144beaad.png" alt="innerBar"></p> <p>从图中可以看出来，Breakpoints打点位置，当调用 bar.getName 的时候，右边 Scope 项就体现出了作用域链的情况：Local 就是当前的 getName 函数的作用域，Closure(foo) 是指 foo 函数的闭包，最下面的 Global 就是指全局作用域，从“Local–&gt;Closure(foo)–&gt;Global”就是一个完整的作用域链。</p> <p>所以在JS引擎判断是一个闭包函数时，会在堆空间创建一个“closure(XXX)”变量(这个变量JS内部不能访问)，用来保存在闭包中被闭包外部引用的变量与方法。所以当闭包函数代码执行完后虽然执行上下文被销毁了，但是闭包中被其他函数或对象引用的变量或者方法不会被销毁。</p> <p>可以再分析一下这段代码什么时候会产生闭包，结果是什么</p> <div class="language- extra-class"><pre class="language-text"><code>var bar = {
+    myName:&quot;time.geekbang.com&quot;,
+    printName: function () {
+        console.log(myName)
+    }    
+}
+function foo() {
+    let myName = &quot;test&quot;
+    return bar.printName
+}
+let myName = &quot;tes2&quot;
+let _printName = foo()
+_printName()
+bar.printName()
+</code></pre></div><p>最后输出的结果都是'test2'，而且中间没有产生闭包(因为没有用到bar内部的变量)。我们分析一波：
+首先是变量提升,和函数声明：
+变量环境中的是var变量: bar = undefined, foo = function
+词法环境中: myName = uninitialization, _printName = uninitialization</p> <p>开始执行代码:
+bar = {
+myName:&quot;time.geekbang.com&quot;,
+printName: function
+}</p> <p>myName = &quot;tes2&quot;  词法环境中: myName =&gt; &quot;test2&quot;
+_printName = foo() 调用foo函数压入执行上下文栈</p> <p>foo执行上下文：
+变量环境： null
+词法环境: myName = undefined
+outer: Golbal(因为foo声明在全局)
+开始执行：
+myName = &quot;test&quot;
+return bar.printName</p> <p>因为使用了bar变量，当前执行上下文不存在该变量。遍根据作用域链查找。
+查找outer(Golbal) -&gt; 变量环境 -&gt; bar
+完成后由于代码执行完毕弹出foo执行上下文</p> <p>再往下执行JS代码：
+_printName()  将_printName执行上下文压入栈</p> <p>_printName执行上下文：
+变量环境: null
+词法环境: null
+outer: Golbal(因为_printName声明在全局)
+执行代码：
+console.log(myName)
+当前上下文不存在myName变量，所以在outer中查找
+outer(Golbal) -&gt; 词法环境 -&gt; myName
+代码执行完毕出弹出_printName执行上下文</p> <p>往下执行JS代码
+bar.printName() 将bar.printName()执行上下文压入栈
+bar.printName执行上下文:
+变量环境： null
+词法环境： null
+outer: Golbal 这里的outer是bar的outer因为此时的this为bar
+执行代码：
+console.log(myName)
+当前上下文不存在myName变量(printName内部没有声明该变量)，所以在outer中查找
+outer(Golbal) -&gt; 词法环境 -&gt; myName
+代码执行完毕出栈</p> <h3 id="闭包回收"><a href="#闭包回收" class="header-anchor">#</a> 闭包回收</h3> <p>通常，如果引用闭包的函数是一个全局变量，那么闭包会一直存在直到页面关闭；但如果这个闭包以后不再使用的话，就会造成内存泄漏。</p> <p>如果引用闭包的函数是个局部变量，等函数销毁后，在下次 JavaScript 引擎执行垃圾回收时，判断闭包这块内容如果已经不再被使用了，那么 JavaScript 引擎的垃圾回收器就会回收这块内存。</p> <p>所以在使用闭包的时候，你要尽量注意一个原则：<strong>如果该闭包会一直使用，那么它可以作为全局变量而存在；但如果使用频率不高，而且占用内存又比较大的话，那就尽量让它成为一个局部变量。</strong></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/browserWork/2.html" class="prev">
+        从输入URL到页面展示，中间发生了什么？
+      </a></span> <span class="next"><a href="/blog/browserWork/4.html">
+        JS 中的 this 指向
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.1b5d2ea8.js" defer></script><script src="/blog/assets/js/2.daa6c974.js" defer></script><script src="/blog/assets/js/4.5f364518.js" defer></script>
+  </body>
+</html>

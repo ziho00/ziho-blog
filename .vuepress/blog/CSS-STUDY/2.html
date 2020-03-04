@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>什么是BFC？ | 学习前端</title>
+    <meta name="description" content="归纳前端学习知识点">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.3fcecfc3.css" as="style"><link rel="preload" href="/blog/assets/js/app.1b5d2ea8.js" as="script"><link rel="preload" href="/blog/assets/js/2.daa6c974.js" as="script"><link rel="preload" href="/blog/assets/js/6.32a7d057.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.368f4418.js"><link rel="prefetch" href="/blog/assets/js/11.0e2a5e23.js"><link rel="prefetch" href="/blog/assets/js/12.782e7b90.js"><link rel="prefetch" href="/blog/assets/js/13.4527dea8.js"><link rel="prefetch" href="/blog/assets/js/14.c5011f64.js"><link rel="prefetch" href="/blog/assets/js/15.db35c99c.js"><link rel="prefetch" href="/blog/assets/js/16.e394df60.js"><link rel="prefetch" href="/blog/assets/js/17.65fd8811.js"><link rel="prefetch" href="/blog/assets/js/18.b12649db.js"><link rel="prefetch" href="/blog/assets/js/19.de123a3f.js"><link rel="prefetch" href="/blog/assets/js/20.c485b6fe.js"><link rel="prefetch" href="/blog/assets/js/21.2b520b34.js"><link rel="prefetch" href="/blog/assets/js/22.7aa61d5e.js"><link rel="prefetch" href="/blog/assets/js/23.ebbe3dc4.js"><link rel="prefetch" href="/blog/assets/js/24.1f9bacd8.js"><link rel="prefetch" href="/blog/assets/js/25.f6ebf531.js"><link rel="prefetch" href="/blog/assets/js/26.4832d624.js"><link rel="prefetch" href="/blog/assets/js/27.a99b60cd.js"><link rel="prefetch" href="/blog/assets/js/28.5ed9e5a5.js"><link rel="prefetch" href="/blog/assets/js/3.46d875a2.js"><link rel="prefetch" href="/blog/assets/js/4.5f364518.js"><link rel="prefetch" href="/blog/assets/js/5.b7b47752.js"><link rel="prefetch" href="/blog/assets/js/7.b55bc2ee.js"><link rel="prefetch" href="/blog/assets/js/8.69b2032f.js"><link rel="prefetch" href="/blog/assets/js/9.a325d718.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.3fcecfc3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">学习前端</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端入门学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>html学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>css学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/CSS-STUDY/1.html" class="sidebar-link">display: node/inline-block/line/block;</a></li><li><a href="/blog/CSS-STUDY/2.html" class="active sidebar-link">什么是BFC？</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/CSS-STUDY/2.html#怎么创建bfc" class="sidebar-link">怎么创建BFC</a></li><li class="sidebar-sub-header"><a href="/blog/CSS-STUDY/2.html#bfc特性" class="sidebar-link">BFC特性</a></li><li class="sidebar-sub-header"><a href="/blog/CSS-STUDY/2.html#margin-坍塌" class="sidebar-link">margin 坍塌</a></li><li class="sidebar-sub-header"><a href="/blog/CSS-STUDY/2.html#高度坍塌" class="sidebar-link">高度坍塌</a></li></ul></li><li><a href="/blog/CSS-STUDY/3.html" class="sidebar-link">元素居中方案</a></li><li><a href="/blog/CSS-STUDY/4.html" class="sidebar-link">flex 布局</a></li><li><a href="/blog/CSS-STUDY/5.html" class="sidebar-link">grid布局实现网格型排版</a></li><li><a href="/blog/CSS-STUDY/6.html" class="sidebar-link">移动端px转rem的自适应方案</a></li><li><a href="/blog/CSS-STUDY/7.html" class="sidebar-link">实现三栏布局</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器工作原理</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js基础</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="什么是bfc？"><a href="#什么是bfc？" class="header-anchor">#</a> 什么是BFC？</h1> <p>BFC全称是Block Formatting Context，即块格式化上下文。它是CSS2.1规范定义的，关于CSS渲染定位的一个概念。</p> <p>BFC 相当于一个隔离的空间，容器内部的元素定位不受外部影响，</p> <p>FC是formatting context的首字母缩写，直译过来是格式化上下文，它是页面中的一块渲染区域，有一套渲染规则，决定了其子元素如何布局，以及和其他元素之间的关系和作用。</p> <h2 id="怎么创建bfc"><a href="#怎么创建bfc" class="header-anchor">#</a> 怎么创建BFC</h2> <p>满足下列条件之一就可触发BFC</p> <ul><li>根元素,或者包含了根元素的元素</li> <li>float的值不为none</li> <li>设置了overflow: hidden;</li> <li>display的值为inline-block、table-cell、table-caption</li> <li>position的值为absolute或fixed，即元素设置了绝对定位</li></ul> <h2 id="bfc特性"><a href="#bfc特性" class="header-anchor">#</a> BFC特性</h2> <p>1.内部的Box会在垂直方向，一个接一个地摆放。
+2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
+3.每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
+4.BFC的区域不会与float box重叠。
+5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+6.计算BFC的高度时，浮动元素也参与计算</p> <h2 id="margin-坍塌"><a href="#margin-坍塌" class="header-anchor">#</a> margin 坍塌</h2> <div class="language- extra-class"><pre class="language-text"><code>// css
+.son{
+    margin: 20px 0;
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+}
+.overflow{
+    overflow: hidden;
+}
+
+// html
+&lt;div class=&quot;son &quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;son &quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;son &quot;&gt;&lt;/div&gt;
+</code></pre></div><p><img src="data:image/png;base64,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" alt="结果4"></p> <p>如上文所说，在同一个BFC中，两个相邻box的margin会发生重叠，即值较小的margin会陷进值较大的margin中</p> <p><strong>怎么解决？(创建BFC)</strong></p> <p>给中间的元素套一个div 给这个的div设置overflow:hidden,即创建BFC;此时相邻的元素都在不同的BFC中，所以不会发生margin坍塌 。</p> <div class="language- extra-class"><pre class="language-text"><code>// css
+.son{
+    margin: 20px 0;
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+}
+.overflow{
+    overflow: hidden;
+}
+
+// html
+&lt;div class=&quot;son &quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;overflow&quot;&gt;
+    &lt;div class=&quot;son &quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;son &quot;&gt;&lt;/div&gt;
+</code></pre></div><p><img src="data:image/png;base64,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" alt="结果5"></p> <h2 id="高度坍塌"><a href="#高度坍塌" class="header-anchor">#</a> 高度坍塌</h2> <div class="language- extra-class"><pre class="language-text"><code>// css
+.son{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+}
+.parent{
+    width: 300px;
+    padding: 15px;
+    background: lightyellow;
+}
+.clear::after{
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+// html
+&lt;div class=&quot;parent&quot;&gt;
+    &lt;div class=&quot;son &quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><p>当元素设置了float浮动后，即脱离了正常的文档流，父元素自然就没有内容来撑起。就发生了高度坍塌。
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeQAAADDCAYAAABTcGLDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAR7SURBVHhe7dXBCVhXEARB539SiI7AKcgHg/HhYdBnQQ1TBZ3BsvPHTwDgtzPIABBgkAEgwCADQIBBBoAAgwwAAQYZAAJ+YZD/lCRJ/3bLIEuS9KlbBlmSpE/dMsiSJH3qlkGWJOlTtwyyJEmfumWQJUn61C2DLEnSp24ZZEmSPnXLIEuS9KlbBlmSpE/dMsiSJH3qlkGWJOlTtwyyJEmfumWQJUn61C2DLEnSp24ZZEmSPnXLIEuS9KlbBlmSpE/dMsiSJH3qlkGWJOlTt37rIP/464f0v73uRpIa3TLISve6G0lqdMsgK93rbiSp0S2DrHSvu5GkRrcMstK97kaSGt0yyEr3uhtJanTLICvd624kqdEtg6x0r7uRpEa3DLLSve5GkhrdMshK97obSWp0yyAr3etuJKnRLYOsdK+7kaRGtwyy0r3uRpIa3TLISve6G0lqdMsgK93rbiSp0S2DrHSvu5GkRrcMstK97kaSGt0yyEr3uhtJanTLICvd624kqdEtg6x0r7uRpEa3fmGQ770esPTfAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFYYZKUDWGGQlQ5ghUFWOoAVBlnpAFb81kEGAP5hkAEgwCADQIBBBoAAgwwAAQYZAAIMMgAEGGQACDDIABBgkAEgwCADQIBBBoAAgwwAAQYZAAIMMgAEGGQACDDIABBgkAEgwCADQIBBBoAAgwwAAQYZAAIMMgAEGGQACDDIABBgkAEgwCADQIBBBoAAgwwAAQYZAH67nz//BsgzShNxyuxUAAAAAElFTkSuQmCC" alt="结果6"></p> <p><strong>怎么解决？（清除浮动）</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// css
+.son{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+}
+.parent{
+    width: 300px;
+    padding: 15px;
+    background: lightyellow;
+}
+.clear::after{
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+/*
+    或者
+.clear {
+    overflow:hidden;
+}
+*/
+// html
+&lt;div class=&quot;parent clear&quot;&gt;
+    &lt;div class=&quot;son &quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><ul><li>伪元素 给父元素创建伪元素</li></ul> <div class="language- extra-class"><pre class="language-text"><code>    .clear::after{
+        content: '';
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+</code></pre></div><ul><li>创建BFC
+用上文提到能触发BFC的设置来创建一个BFC。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>    .clear{
+        overflow:hidden;
+    }
+</code></pre></div><p><img src="data:image/png;base64,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" alt="结果7"></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/CSS-STUDY/1.html" class="prev">
+        display: node/inline-block/line/block;
+      </a></span> <span class="next"><a href="/blog/CSS-STUDY/3.html">
+        元素居中方案
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.1b5d2ea8.js" defer></script><script src="/blog/assets/js/2.daa6c974.js" defer></script><script src="/blog/assets/js/6.32a7d057.js" defer></script>
+  </body>
+</html>

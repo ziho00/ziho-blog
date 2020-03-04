@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        const PENDING = 'pending' // 初始状态
+        const FULFILLED = 'fulfilled' // 意味着操作成功完成
+        const REJECTED = 'rejected' // 意味着操作失败
+        class MyPromise {
+            constructor(fn) {
+                this.state = PENDING
+                this.result = null
+                this.reason = null
+                this.onResolveQueue = []
+                this.onRejectedQueue = []
+
+                const resolve = result => {
+                    setTimeout(() => {
+                        if(this.state === PENDING){
+                            this.state = FULFILLED
+                            this.result = result
+                            this.onResolveQueue.map(cb => {
+                                cb(this.result)
+                            })
+                        }
+                    })
+                }
+
+                const reject = reason => {
+                    setTimeout(() => {
+                        if(this.state === PENDING){
+                            this.state = REJECTED
+                            this.reason = reason
+                            this.onRejectedQueue.map(cb => {
+                                cb(this.reason)
+                            })
+                        }
+                    })
+                }
+            }
+
+            then(onResolve, onRejected) {
+                typeof onResolve === 'function' && this.onResolveQueue.push(onResolve)
+                typeof onRejected === 'function' && this.onRejectedQueue.push(onRejected)
+                return this
+            }
+        }
+    </script>
+</body>
+</html>

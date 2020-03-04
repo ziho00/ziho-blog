@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>grid布局实现网格型排版 | 学习前端</title>
+    <meta name="description" content="归纳前端学习知识点">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.3fcecfc3.css" as="style"><link rel="preload" href="/blog/assets/js/app.1b5d2ea8.js" as="script"><link rel="preload" href="/blog/assets/js/2.daa6c974.js" as="script"><link rel="preload" href="/blog/assets/js/9.a325d718.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.368f4418.js"><link rel="prefetch" href="/blog/assets/js/11.0e2a5e23.js"><link rel="prefetch" href="/blog/assets/js/12.782e7b90.js"><link rel="prefetch" href="/blog/assets/js/13.4527dea8.js"><link rel="prefetch" href="/blog/assets/js/14.c5011f64.js"><link rel="prefetch" href="/blog/assets/js/15.db35c99c.js"><link rel="prefetch" href="/blog/assets/js/16.e394df60.js"><link rel="prefetch" href="/blog/assets/js/17.65fd8811.js"><link rel="prefetch" href="/blog/assets/js/18.b12649db.js"><link rel="prefetch" href="/blog/assets/js/19.de123a3f.js"><link rel="prefetch" href="/blog/assets/js/20.c485b6fe.js"><link rel="prefetch" href="/blog/assets/js/21.2b520b34.js"><link rel="prefetch" href="/blog/assets/js/22.7aa61d5e.js"><link rel="prefetch" href="/blog/assets/js/23.ebbe3dc4.js"><link rel="prefetch" href="/blog/assets/js/24.1f9bacd8.js"><link rel="prefetch" href="/blog/assets/js/25.f6ebf531.js"><link rel="prefetch" href="/blog/assets/js/26.4832d624.js"><link rel="prefetch" href="/blog/assets/js/27.a99b60cd.js"><link rel="prefetch" href="/blog/assets/js/28.5ed9e5a5.js"><link rel="prefetch" href="/blog/assets/js/3.46d875a2.js"><link rel="prefetch" href="/blog/assets/js/4.5f364518.js"><link rel="prefetch" href="/blog/assets/js/5.b7b47752.js"><link rel="prefetch" href="/blog/assets/js/6.32a7d057.js"><link rel="prefetch" href="/blog/assets/js/7.b55bc2ee.js"><link rel="prefetch" href="/blog/assets/js/8.69b2032f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.3fcecfc3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">学习前端</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端入门学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>html学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>css学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/CSS-STUDY/1.html" class="sidebar-link">display: node/inline-block/line/block;</a></li><li><a href="/blog/CSS-STUDY/2.html" class="sidebar-link">什么是BFC？</a></li><li><a href="/blog/CSS-STUDY/3.html" class="sidebar-link">元素居中方案</a></li><li><a href="/blog/CSS-STUDY/4.html" class="sidebar-link">flex 布局</a></li><li><a href="/blog/CSS-STUDY/5.html" class="active sidebar-link">grid布局实现网格型排版</a></li><li><a href="/blog/CSS-STUDY/6.html" class="sidebar-link">移动端px转rem的自适应方案</a></li><li><a href="/blog/CSS-STUDY/7.html" class="sidebar-link">实现三栏布局</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器工作原理</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js基础</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="grid布局实现网格型排版"><a href="#grid布局实现网格型排版" class="header-anchor">#</a> grid布局实现网格型排版</h1> <p>在我们的日常开发中，可能会经常遇到这样的布局：
+<img src="/blog/assets/img/css09.8a06b9ee.png" alt="网格型布局"></p> <p>这就可以使用grid布局来实现，简单且实用。</p> <div class="language- extra-class"><pre class="language-text"><code>// css
+.container{
+    display: grid; /* 使用grid布局 */
+    grid-template-columns: 1fr 1fr 1fr; /* 这里相当于平分成了3份 */
+    grid-template-rows: auto;
+}
+.item{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background: lightgreen;
+}
+// html
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><p><strong>效果:</strong> <img src="/blog/assets/img/css08.6b55288d.png" alt="grid布局效果"></p> <p>如果需要在每个元素直接插入空隙可以使用 grid-column-gap / grid-row-gap来设置水平 / 垂直方向的间隙</p> <div class="language- extra-class"><pre class="language-text"><code>// css
+.container{
+    display: grid; /* 使用grid布局 */
+    margin: 0 20px;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr; /* 这里相当于平分成了3份 */
+}
+.item{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background: lightgreen;
+}
+// html
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><p>效果：
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAx0AAAIxCAYAAAAogNVqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAwBSURBVHhe7dmxbcMwFEVRMxt4Us2i9YIU2cAjMCpYxoAg+BYCzmn4FvjFBcf3z+98AAAARL7WCwAAkBjzsDYAAMDH+ekAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiNeVibi/bXvha8tz23tbgjd84Z7vze3DlnuPNr/HQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAACpMQ9rAwAAfJyfDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACA1JiHtblof+1rwXvbc1uLO3LnnOHO782dc4Y7v8ZPBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBIdAABASnQAAAAp0QEAAKREBwAAkBrzsDYAAMDH+ekAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiNeVibi/bXvha8tz23tbgjd84Z7hzgf346AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACAlOgAAABSogMAAEiJDgAAICU6AACA1JiHtQEAAD7OTwcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAKdEBAACkRAcAAJASHQAAQEp0AAAAocfjD+h0O9RgDObHAAAAAElFTkSuQmCC" alt="grid布局效果2"></p> <p>grid布局的详细用法可以看一下阮大神的<a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener noreferrer">《CSS Grid 网格布局教程》<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/CSS-STUDY/4.html" class="prev">
+        flex 布局
+      </a></span> <span class="next"><a href="/blog/CSS-STUDY/6.html">
+        移动端px转rem的自适应方案
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.1b5d2ea8.js" defer></script><script src="/blog/assets/js/2.daa6c974.js" defer></script><script src="/blog/assets/js/9.a325d718.js" defer></script>
+  </body>
+</html>

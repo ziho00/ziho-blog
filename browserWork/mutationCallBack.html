@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="son"></div>
+    </div>
+    <script>
+        let targetNode = document.querySelector('.parent')
+
+        let mutationCallBack = function(mutationsList) {
+            console.log(mutationsList)
+        }
+
+        let observer = new MutationObserver(mutationCallBack)
+
+        let config = { // 监听子节点变化 监听attr属性变化
+            attributes: true,
+            childList: true 
+        };
+
+        observer.observe(targetNode, config)
+
+        targetNode.removeChild(document.querySelector('.son'))
+
+        console.log('1')
+
+        // observer.disconnect()
+    </script>
+</body>
+</html>
